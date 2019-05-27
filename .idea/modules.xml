@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AIsklep.iml" filepath="$PROJECT_DIR$/AIsklep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/AIsklep.iml" filepath="$PROJECT_DIR$/.idea/AIsklep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AIsklep-app/AIsklep-app.iml" filepath="$PROJECT_DIR$/AIsklep-app/AIsklep-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AIsklep-server/AIsklep-server.iml" filepath="$PROJECT_DIR$/AIsklep-server/AIsklep-server.iml" />
     </modules>
   </component>
 </project>
