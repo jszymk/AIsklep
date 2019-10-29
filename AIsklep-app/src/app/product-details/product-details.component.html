@@ -1,0 +1,30 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8 border border-light row d-flex justify-content-center">
+    <div class="p-2">
+      <button class="btn btn-info m-2" (click)="goTo('')">Wstecz</button>
+      <div class="card card-body mb-3">
+        <div class="media d-block d-md-flex">
+          <div class="media-body text-center text-md-left ml-md-3 ml-0">
+            <p class="h4">{{product.name}}</p>
+            <div class="row">
+              <img [src]="product.image" style="width:30%"
+                   *ngIf="!product.isImageLoading; else noImageFound">
+              <ng-template #noImageFound>
+                <img src="assets/unavailable.jpg" style="width:30%">
+              </ng-template>
+              <div class="p-2 col-sm-6">
+                {{product.description}}
+              </div>
+            </div>
+            <p class="h6 text-md-right">Cena: {{product.price}} zł</p>
+            <div class="col-md-2" style="float:right">
+              <label for="numberInput">Ilość: </label>
+              <input class="form-control p-2" id="numberInput" type="number" min="1" [(ngModel)]="quantity">
+              <button class="btn btn-success p-2" style="float:right; margin-top: 5px" (click)="addToCart()">Dodaj do koszyka</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

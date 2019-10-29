@@ -1,0 +1,12 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8 border border-light row d-flex justify-content-center">
+    <form class="p-5 text-center" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <p class="h4 mb-4">Logowanie</p>
+      <input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+      <input type="password" formControlName="password" class="form-control mb-4" placeholder="Hasło">
+      <p style="color:red" *ngIf="error">Niepoprawne hasło lub email.</p>
+      <button class="btn btn-info btn-block my-4" type="submit" [disabled]="!loginForm.valid">Zaloguj</button>
+      <a (click)="goTo('reset-password')">Nie pamiętasz hasła?</a>
+    </form>
+  </div>
+</div>

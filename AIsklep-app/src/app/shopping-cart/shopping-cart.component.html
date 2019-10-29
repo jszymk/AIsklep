@@ -1,0 +1,56 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8 border border-light row d-flex justify-content-center">
+    <div class="p-5 col-md-12">
+      <p class="h4 mb-4 text-center">Koszyk</p>
+      <div class="text-center" *ngIf="items == null || items.length == 0">Koszyk jest pusty.</div>
+      <div class="col-md-12" *ngIf="items != null && items.length > 0">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Ilość</th>
+            <th scope="col">Cena jednostki</th>
+            <th scope="col">Cena łącznie</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of items; let i=index">
+            <td>
+              {{i+1}}
+            </td>
+            <td>
+              {{item.product.name}}
+            </td>
+            <td>
+              {{item.quantity}}
+            </td>
+            <td>
+              {{item.product.price | number:'1.2-2'}} zł
+            </td>
+            <td>
+              {{item.product.price*item.quantity | number:'1.2-2'}} zł
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="removeFromCart(item)"><i class="far fa-trash-alt"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{getPriceSum(items) | number:'1.2-2'}} zł</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="col-md-2" style="float:right">
+          <button class="btn btn-success p-2" style="float:right; margin-top: 5px" *ngIf="isLoggedIn" (click)="orderProducts()">Zamów</button>
+          <span *ngIf="!isLoggedIn">Aby zamówić produkty zaloguj się.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

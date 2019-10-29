@@ -1,1 +1,4 @@
 .idea
+AIsklep-server/target/
+AIsklep-app/src/main/frontend/node/
+application.log.*

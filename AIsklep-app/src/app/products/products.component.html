@@ -1,0 +1,33 @@
+<div class="row d-flex justify-content-center" style="min-width:100%">
+  <div class="col-md-8 border border-light row">
+    <div class="p-2 col-md-12 row">
+      <label class="h4 p-2" for="categorySelect">Kategoria:</label>
+      <select id="categorySelect" class="browser-default custom-select col-md-3" [(ngModel)]="categoryId" (change)="fetchProducts()">
+        <option value="" selected>Wszystkie</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+      <div class="ml-auto row">
+        <input class="form-control" type="text" placeholder="Szukaj" [(ngModel)]="searchPhrase" (keyup.enter)="fetchProducts()">
+        <button class="btn btn-info ml-auto my-1" (click)="fetchProducts()">Szukaj</button>
+      </div>
+    </div>
+    <div class="p-2" style="width: 300px; cursor: pointer" *ngFor="let product of products"
+         (click)="productDetails(product)">
+      <div class="card card-body mb-3">
+        <div class="media d-block d-md-flex">
+          <div class="media-body text-center text-md-left ml-md-3 ml-0">
+            <p class="h4">{{product.name}}</p>
+            <div style="height: 250px">
+              <img [src]="product.image" style="width:100%"
+                   *ngIf="!product.isImageLoading; else noImageFound">
+              <ng-template #noImageFound>
+                <img src="assets/unavailable.jpg" style="width:100%">
+              </ng-template>
+            </div>
+            <p class="h6 text-md-right">{{product.price}} zł</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
